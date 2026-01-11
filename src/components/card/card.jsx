@@ -1,3 +1,4 @@
+import Button from "../button/button";
 import "./card.css";
 
 function Card(props) {
@@ -28,8 +29,8 @@ function Card(props) {
       <div className="hr"></div>
 
       <div className="btn_container">
-        <button>+</button>
-        <button>-</button>
+        <Button title={"+"} type={"add"} />
+        <Button title={"-"} type={"remove"} />
       </div>
     </div>
   );
