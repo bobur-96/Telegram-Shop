@@ -1,6 +1,7 @@
 import "./App.css";
 import Card from "./components/card/card";
 import { getData } from "./constants/db";
+import Cart from "./components/cart/cart";
 
 const courses = getData();
 
@@ -9,7 +10,7 @@ const App = () => {
     <>
       <h1 className="heading">Sammi kurslar</h1>
 
-      {/* Cart */}
+      <Cart />
       <div className="cards_container">
         {courses.map((course) => (
           <Card key={course.id} course={course} />
