@@ -2,7 +2,8 @@ import Button from "../button/button";
 import "./card.css";
 
 function Card(props) {
-  const { course } = props;
+  const { course, onAddItem, onRemoveItem } = props;
+
   return (
     <div className="cadr">
       <span className="card_badge">1</span>
@@ -29,8 +30,12 @@ function Card(props) {
       <div className="hr"></div>
 
       <div className="btn_container">
-        <Button title={"+"} type={"add"} />
-        <Button title={"-"} type={"remove"} />
+        <Button title={"+"} onClick={() => onAddItem(course)} type={"add"} />
+        <Button
+          title={"-"}
+          type={"remove"}
+          onClick={() => onRemoveItem(course)}
+        />
       </div>
     </div>
   );
