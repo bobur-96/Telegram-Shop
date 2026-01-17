@@ -53,12 +53,24 @@ const App = () => {
   };
 
   const onCheckout = () => {
-    telegram.MainButton.text = "Sotib olish :)";
+    telegram.MainButton.text = "Sotib olish";
     telegram.MainButton.show();
   };
 
   const onSendData = useCallback(() => {
-    telegram.sendData(JSON.stringify(cartItems));
+    const queryId = telegram.initDataUnsave?.query_id;
+
+    if (queryId) {
+      fetch("http://localhost:8000/web-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cartItems),
+      });
+    } else {
+      telegram.sendData(JSON.stringify(cartItems));
+    }
   }, [cartItems]);
 
   useEffect(() => {
